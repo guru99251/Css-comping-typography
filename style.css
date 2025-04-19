@@ -1,0 +1,178 @@
+/* ========== 전체 기준 세팅 ========== */
+:root {
+  --base-font-size: 18px;
+  --base-line-height: 1.6;
+  --info-color: #2e2e2e;
+  --bg-color: #f9f9f9;
+  --h1-color: #222;
+  --h2-color: #1e88e5;
+  --p-color: #333;
+  --strong-color: #000;
+  --em-color: #c0392b;
+}
+
+/* body 기본 */
+body {
+  margin: 0;
+  padding: 4rem 1rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  color: var(--info-color);
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+}
+
+/* ========== 1) 고정된 Floating 컨트롤 카드형 ========== */
+.typography-controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 20%;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  font-size: 0.8rem;
+}
+
+.typography-controls h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-left: #000 solid 4px;
+  padding-left: 0.5rem;
+}
+
+/* ========== 2) 레이아웃 오프셋 ========== */
+.layout {
+  margin-left: 320px; /* controls 폭 + 여유 */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1440px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+/* ========== 컨테이너 기본 스타일 ========== */
+.typography-container {
+  padding: 2.5rem 5rem 5rem 5rem;
+  overflow-y: auto;
+}
+
+.paragraph-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+}
+
+/* 타이포그래피 컨테이너 너비 */
+.typography-container {
+  max-width: 30%;
+}
+
+/* ========== 웹 정보 컨테이너 스타일링 ========== */
+.typography-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.typography-container h2 {
+  font-size: 1.5rem;
+}
+
+.small {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  padding-left: 1rem;
+}
+
+/* ========== 텍스트 계층 구조 ========== */
+h1, h2, h3 {
+  line-height: 1.3;
+  font-weight: 700;
+  color: #111;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+h2 {
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+p {
+  margin-bottom: 1.25rem;
+}
+
+/* ========== 인라인 강조 ========== */
+em {
+  font-style: italic;
+  color: var(--em-color);
+}
+strong {
+  font-weight: bold;
+  color: var(--strong-color);
+}
+
+/* ========== 본문 문단 컨테이너 텍스트 스타일 ========== */
+.paragraph-container h1 {
+  font-size: 2.2rem;
+  color: var(--h1-color);
+}
+.paragraph-container h2 {
+  font-size: 1.4rem;
+  border-left: 4px solid var(--h2-color);
+  padding-left: 0.5rem;
+  color: var(--h2-color);
+}
+.paragraph-container p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--p-color);
+  text-align: justify;
+}
+
+.paragraph-container h1,
+.paragraph-container h2,
+.paragraph-container .space-vertical,
+.paragraph-container p {
+  margin-top: 0 !important;
+}
+
+
+/* ========== 모던 인풋 스타일 ========== */
+.typography-controls label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.typography-controls input[type="text"],
+.typography-controls input[type="number"],
+.typography-controls input[type="color"],
+.typography-controls select,
+.typography-controls textarea {
+  width: 60%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.typography-controls input:focus,
+.typography-controls select:focus,
+.typography-controls textarea:focus {
+  outline: none;
+  border-color: var(--h2-color);
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.3);
+}
