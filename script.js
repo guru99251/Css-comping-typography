@@ -3,6 +3,15 @@ const paraContainer         = document.querySelector('.paragraph-container');
 const cssOutput             = document.getElementById('css-output');
 const copyCssBtn            = document.getElementById('copy-css-btn');
 
+// 토글 버튼 & controls 컨테이너
+const typographyControls   = document.querySelector('.typography-controls');
+const controlsToggleBtn    = document.getElementById('controls-toggle-btn');
+
+// 새 입력 요소
+const h1TextAlignSelect    = document.getElementById('h1-text-align');
+const h2TextAlignSelect    = document.getElementById('h2-text-align');
+const pLetterSpacingInput  = document.getElementById('p-letter-spacing');
+
 // H1 controls
 const h1FontInput           = document.getElementById('h1-font');
 const h1FontWeightInput     = document.getElementById('h1-font-weight');
@@ -66,9 +75,15 @@ const controls = [
   h2FontInput, h2FontWeightInput, h2FontSizeInput, h2LetterSpacingInput, h2LineHeightInput, h2BoldInput, h2ItalicInput, h2ColorInput, h2BorderInput, h2TextTransformSelect,
   pSpaceFontInput, pSpaceFontSizeInput, pSpaceLetterSpacingInput, pSpaceLineHeightInput, pSpaceBoldInput, pSpaceItalicInput, pSpaceColorInput, pSpaceAlignSelect,
   pFontInput, pFontSizeInput, pLineHeightInput, pLineLengthInput, pBoldInput, pItalicInput, pColorInput, pJustifyInput,
-  pBgColorInput
+  pBgColorInput, h1TextAlignSelect, h2TextAlignSelect, pLetterSpacingInput,
 ].filter(Boolean);
 controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
+
+// 토글 버튼 클릭 시 접고/펼치기
+controlsToggleBtn.addEventListener('click', () => {
+  typographyControls.classList.toggle('collapsed');
+  controlsToggleBtn.textContent = typographyControls.classList.contains('collapsed') ? '☰' : '✕';
+});
 
 // — 스타일 업데이트 함수 — 
 function updateStyles() {
@@ -90,6 +105,7 @@ function updateStyles() {
     el.style.fontStyle      = h1ItalicInput.checked ? 'italic' : 'normal';
     el.style.textTransform  = h1TextTransformSelect.value;
     el.style.color          = h1ColorInput.value;
+    el.style.textAlign = h1TextAlignSelect.value;
   });
 
   // H2
@@ -108,6 +124,8 @@ function updateStyles() {
     el.style.borderLeft     = h2BorderInput.checked
                               ? `4px solid ${h2ColorInput.value}`
                               : 'none';
+    el.style.textAlign   = h2TextAlignSelect.value;
+    el.style.paddingLeft = h2BorderInput.checked ? '0.5rem' : '0';
   });
 
   // 부주제
@@ -135,6 +153,7 @@ function updateStyles() {
     el.style.fontStyle      = pItalicInput.checked ? 'italic' : 'normal';
     el.style.color          = pColorInput.value;
     el.style.textAlign      = pJustifyInput.checked ? 'justify' : 'left';
+    el.style.letterSpacing = `${pLetterSpacingInput.value}px`;
   });
 
   // 배경색
@@ -187,6 +206,7 @@ function updateCssOutput() {
   letter-spacing: ${h1LetterSpacingInput.value}px;
   font-style: ${h1ItalicInput.checked ? 'italic' : 'normal'};
   text-transform: ${h1TextTransformSelect.value};
+  text-align: ${h1TextAlignSelect.value};
   color: ${h1ColorInput.value};
 }
 
@@ -200,8 +220,10 @@ function updateCssOutput() {
   letter-spacing: ${h2LetterSpacingInput.value}px;
   font-style: ${h2ItalicInput.checked ? 'italic' : 'normal'};
   text-transform: ${h2TextTransformSelect.value};
+  text-align: ${h2TextAlignSelect.value};
   color: ${h2ColorInput.value};
   border-left: ${h2BorderInput.checked ? `4px solid ${h2ColorInput.value}` : 'none'};
+  padding-left: ${h2BorderInput.checked ? '0.5rem' : '0'};
 }
 
 /* subtitle */
@@ -222,6 +244,7 @@ function updateCssOutput() {
   font-family: ${pFontInput.value};
   font-weight: ${pBoldInput.checked ? 'bold' : 'normal'};
   font-size: ${pFontSizeInput.value}px;
+  letter-spacing: ${pLetterSpacingInput.value}px;
   line-height: ${pLineHeightInput.value}%;
   max-width: ${pLineLengthInput.value}ch;
   font-style: ${pItalicInput.checked ? 'italic' : 'normal'};

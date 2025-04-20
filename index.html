@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- 컨트롤 토글 버튼 -->
+  <button id="controls-toggle-btn" class="controls-toggle-btn">☰</button>
+  
   <!-- Floating controls -->
   <div class="typography-controls">
     <h2>H1 설정</h2>
@@ -32,6 +35,13 @@
       <option value="lowercase">lowercase</option>
       <option value="capitalize">capitalize</option>
     </select></label>
+    <label>Text Align: 
+      <select id="h1-text-align">
+        <option value="left">왼쪽</option>
+        <option value="center">중앙</option>
+        <option value="right">오른쪽</option>
+      </select>
+    </label>
     <span style="display:inline-block;">Bold: <input type="checkbox" id="h1-bold"></span>
     <span style="display:inline-block;">Italic: <input type="checkbox" id="h1-italic"></span>
 
@@ -74,6 +84,13 @@
       <option value="lowercase">lowercase</option>
       <option value="capitalize">capitalize</option>
     </select></label>
+    <label>Text Align: 
+      <select id="h2-text-align">
+        <option value="left">왼쪽</option>
+        <option value="center">중앙</option>
+        <option value="right">오른쪽</option>
+      </select>
+    </label>
     <span style="display:inline-block;">Bold: <input type="checkbox" id="h2-bold"></span>
     <span style="display:inline-block;">Italic: <input type="checkbox" id="h2-italic"></span>
     <span style="display:inline-block;">Border Left: <input type="checkbox" id="h2-border" checked></span>
@@ -82,6 +99,7 @@
     <h2>본문 설정</h2>
     <label>Font Family: <input type="text" id="p-font" value="Noto Sans KR"></label>
     <label>Font Size (px): <input type="number" id="p-font-size" value="15" step="0.5"></label>
+    <label>Letter Spacing (px): <input type="number" id="p-letter-spacing" value="0" step="0.1"></label>
     <label>Line Height (%): <input type="number" id="p-line-height" value="160" step="1"></label>
     <label>Line Length (ch): <input type="number" id="p-line-length" value="65"></label>
     <label>Color: <input type="color" id="p-color" value="#333333"></label>
