@@ -73,6 +73,12 @@ const displayBgColor        = document.getElementById('display-bg-color');
 const loadedFontStyles = new Set();
 const loadedFontLinks  = new Set();
 
+// — 요약(typography-container) 토글 스크립트 추가 —
+const summaryToggleBtn      = document.getElementById('summary-toggle-btn');
+const typographyContainer   = document.querySelector('.typography-container');
+const layout                = document.querySelector('.layout');
+let isCollapsedSummary      = false;
+
 // — 이벤트 바인딩 —
 const controls = [
   h1FontInput, h1FontWeightInput, h1FontSizeInput, h1LetterSpacingInput, h1LineHeightInput, h1BoldInput, h1ItalicInput, h1ColorInput, h1TextTransformSelect,
@@ -367,10 +373,8 @@ paraContainer.querySelectorAll('h1, h2, .space-vertical, p:not(.space-vertical)'
   });
 
 
-// ...your existing updateStyles / updateCssOutput / copyCssBtn code above…
 
 // — 언어 전환용 스크립트 추가 —
-
 // 1) 번역 데이터 로드
 let translations = {};
 fetch('translations.json')
@@ -414,4 +418,26 @@ toggleBtn.addEventListener('click', () => {
 
   isEnglish = !isEnglish;
   toggleBtn.textContent = isEnglish ? '한국어 복원' : '영어 전환';
+});
+
+// — 요약 접기/펼치기 핸들러 —
+summaryToggleBtn.addEventListener('click', () => {
+  isCollapsedSummary = !isCollapsedSummary;
+
+  // 1) 요약 컨테이너 보이기/숨기기
+  typographyContainer.style.display = isCollapsedSummary ? 'none' : '';
+
+  // 2) 버튼 아이콘 토글 (화살표 ←/→)
+  summaryToggleBtn.textContent = isCollapsedSummary ? '⮞' : '⮜';
+
+  // 3) 본문 중앙 정렬
+  if (isCollapsedSummary) {
+    layout.style.justifyContent = 'center';
+    layout.style.marginLeft     = 'auto';
+    layout.style.marginRight    = 'auto';
+  } else {
+    layout.style.justifyContent = '';
+    layout.style.marginLeft     = ''; // style.css의 기본(왼쪽 여백)으로 복원
+    layout.style.marginRight    = '';
+  }
 });

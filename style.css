@@ -196,8 +196,28 @@ strong {
   z-index: 1001;
 }
 
+/* — 요약 토글 버튼 스타일 — */
+#summary-toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 70px;
+  width: 40px;
+  height: 40px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 1001;
+}
+
+
 /* 태블릿 이하에서만 토글 버튼 보이기, 컨트롤 너비 조정 */
-@media (max-width: 1920px) {
+@media (max-width: 2048px) {
   .controls-toggle-btn {
     display: flex;
   }
@@ -212,5 +232,8 @@ strong {
   .layout {
     margin-left: auto;
     padding: 0 1rem;
+  }
+  #summary-toggle-btn {
+    display: flex;
   }
 }
