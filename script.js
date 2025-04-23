@@ -70,15 +70,8 @@ const displayPColor         = document.getElementById('display-p-color');
 const displayBgColor        = document.getElementById('display-bg-color');
 
 // 로드된 폰트 링크를 저장할 Set
-const loadedFontLinks = new Set();
-const fontInputs = [
-  document.getElementById('h1-font'),
-  document.getElementById('p-space-font'),
-  document.getElementById('h2-font'),
-  document.getElementById('p-font'),
-];
-
 const loadedFontStyles = new Set();
+const loadedFontLinks  = new Set();
 
 // — 이벤트 바인딩 —
 const controls = [
@@ -99,42 +92,61 @@ controlsToggleBtn.addEventListener('click', () => {
 
 
 // 웹 폰트 URL 검사 및 로딩, family 이름 추출
-/*
- * value 값이
- *  1) .css URL → <link>로 주입
- *  2) .woff/.woff2/.ttf/.otf URL → <style>@font-face</style>로 주입
- *  3) 그 외 → 그냥 family 이름으로 반환
+/**
+ * value:
+ *  - 구글폰트 CSS URL (fonts.googleapis.com) → <link> 주입
+ *  - .css URL                        → <link> 주입
+ *  - 폰트파일 URL (.woff2, .ttf 등) → <style>@font-face</style> 주입
+ *  - 그 외                           → 그냥 family 이름
  */
 
 function getFontFamily(value) {
-  const v = value.trim();
+  // 1) 혹시 rel="stylesheet" 같은 부가 텍스트가 붙어있다면 URL만 뽑아내기
+  let v = (value.match(/https?:\/\/[^\s'"]+/) || [value.trim()])[0];
 
-  // 1) CSS 스타일시트 URL
-  if (/\.css($|\?)/i.test(v)) {
+  // 2) Google Fonts CSS2 링크
+  if (v.includes('fonts.googleapis.com')) {
     if (!loadedFontStyles.has(v)) {
       const link = document.createElement('link');
-      link.rel = 'stylesheet';
+      link.rel  = 'stylesheet';
       link.href = v;
       document.head.appendChild(link);
       loadedFontStyles.add(v);
+      loadedFontLinks.add(v);
     }
     try {
-      // Google Fonts처럼 ?family=Name:… 파라미터에서 이름만 뽑아내기
+      // ?family=NAME:… 형태에서 이름만 추출
+      const fam = new URL(v).searchParams.get('family');
+      if (fam) return fam.split('&')[0].split(':')[0].replace(/\+/g, ' ');
+    } catch {}
+    return v;
+  }
+
+  // 3) 일반 .css 파일 URL
+  if (/\.css($|\?)/i.test(v)) {
+    if (!loadedFontStyles.has(v)) {
+      const link = document.createElement('link');
+      link.rel  = 'stylesheet';
+      link.href = v;
+      document.head.appendChild(link);
+      loadedFontStyles.add(v);
+      loadedFontLinks.add(v);
+    }
+    try {
       return new URL(v).searchParams.get('family')
-        .split(':')[0]
-        .replace(/\+/g, ' ');
+               .split(':')[0]
+               .replace(/\+/g, ' ');
     } catch {
       return v;
     }
   }
 
-  // 2) 폰트 파일 URL
+  // 4) .woff/.woff2/.ttf/.otf 같은 폰트 파일 URL
   if (/\.(woff2?|ttf|otf)($|\?)/i.test(v)) {
     if (!loadedFontStyles.has(v)) {
-      const parts = v.split('/');
-      const filename = parts[parts.length - 1];
-      const name = filename.split('.')[0];          // `BookkMyungjo-Bd` 
-      const format = filename.split('.').pop();     // `woff2`
+      const filename = v.split('/').pop().split('?')[0];
+      const name     = filename.split('.')[0];      // BookkMyungjo-Bd
+      const format   = filename.split('.').pop();    // woff2, ttf…
       const styleTag = document.createElement('style');
       styleTag.textContent = `
 @font-face {
@@ -143,13 +155,13 @@ function getFontFamily(value) {
 }`;
       document.head.appendChild(styleTag);
       loadedFontStyles.add(v);
+      loadedFontLinks.add(v);
     }
-    // 자동으로 추출한 이름 반환
     return v.split('/').pop().split('.')[0];
   }
 
-  // 3) 순수 폰트명
-  return v;
+  // 5) 순수 폰트명
+  return v.trim();
 }
 
 // — 스타일 업데이트 함수 — 
