@@ -1,0 +1,184 @@
+[Korean]
+serif:
+	Noto Serif KR: https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap
+	부크크 명조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2
+	김정철 명조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2
+	마루부리: https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot
+	아리따부리: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff
+	순바탕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/SunBatang-Light.woff
+	예스 명조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YESMyoungjo-Regular.woff
+	고운 명조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff
+	고운 바탕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff
+	조선일보명조체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff
+	조선굵은명조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKm.woff
+	조선신명조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff
+	조선100년체: https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/ChosunCentennial.woff2
+	조선궁서체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff
+	대구가톨릭대학체: https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/DaeguCatholicUniversity.woff2
+	SF함박눈: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff
+	조선궁서체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff
+	카페24 고운밤: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff
+	카페24 단정해: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Danjunghae.woff
+	카페24 클래식타입: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2
+	박물관문화재단클래식: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff
+	HS봄바람체 3.0: https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.1/HSBombaram3_Regular.woff
+	단조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Danjo-bold-Regular.woff2
+	리디바탕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff
+	함초롬바탕체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/HANBatang.woff
+	서울한강체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulHangangM.woff
+	본명조: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff
+	Hahmlet: https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap
+	Diphylleia: https://fonts.googleapis.com/css2?family=Diphylleia&display=swap
+	Grandiflor One: https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap
+	Song Myung: https://fonts.googleapis.com/css2?family=Song+Myung&display=swap
+	
+san-serif:
+	Noto Sans KR: https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap
+	검은고딕: https://fonts.googleapis.com/css?family=Black+Han+Sans:400
+	펴진고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Bold.woff2
+	느림보고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/neurimboGothicRegular.woff2
+	학교안심 알림장: https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimAllimjangTTF-B.woff2
+	학교안심 물결: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimMulgyeolB.woff2
+	경기천년제목: https://fastly.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Medium.woff
+	강원교육모두체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff
+	조선로고체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunLo.woff
+	조선가는고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff
+	조선견고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunBg.woff
+	독립체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Dokrip.woff
+	주아체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff
+	한나체: https://fonts.googleapis.com/earlyaccess/hanna.css
+	한나체 Air: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff
+	한나체 Pro: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff
+	도현체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff
+	연성체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMYEONSUNG.woff
+	을지로체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff
+	카카오 큰글씨: https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoBigSans-ExtraBold.woff2
+	카카오 작은글씨: https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2
+	망고보드 또박체: https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoDdobak-B.woff2
+	더 잠실체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2
+	눈누 기초고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2
+	Wanted Sans: https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css
+	LINE Seed: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2
+	G마켓 산스: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff
+	티몬체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff
+	여기어때 잘난체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff
+	여기어때 잘난체 고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff
+	가나초콜릿체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff
+	수트: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2
+	프리텐다드: https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff
+	민산스: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff
+	프리젠테이션: https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2
+	페이퍼로지: https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2
+	에스코어 드림: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff
+	나눔고딕: http://fonts.googleapis.com/earlyaccess/nanumgothic.css
+	나눔바른고딕: https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot
+	나눔바른펜: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff
+	나눔스퀘어: https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css
+	나눔스퀘어 네오: https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot
+	나눔스퀘어 라운드: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff
+	나눔휴먼: https://fastly.jsdelivr.net/gh/projectnoonnu/2501-1@1.1/NanumHumanTTFBold.woff2
+	D2Coding: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff
+	서울남산체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff
+	카페24 아네모네: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff
+	카페24 슈퍼매직: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2
+	카페24 써라운드: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff
+	넥슨 Lv.1 고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff
+	넥슨 Lv.2 고딕: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff
+	넥슨 워헤이븐: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/WarhavenB.woff2
+	넥슨 풋볼고딕: https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff
+	무적해병체: https://fastly.jsdelivr.net/gh/projectnoonnu/2502-1@1.0/MarinesBold.woff2
+	양진체: https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff
+	태나다체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2
+	파셜산스: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2
+	이사만루: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff
+	Rix열정도체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff
+	어그로체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff
+	둥근모꼴: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff
+	평창평화체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2
+	기후위기-한글: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2
+	갈무리9: https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css
+	HS새마을체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff
+	Gugi: https://fonts.googleapis.com/css2?family=Gugi&display=swap
+	Orbit: https://fonts.googleapis.com/css2?family=Orbit&display=swap
+
+script:
+	신라문화체: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/Shilla_CultureB-Bold.woff2
+	행복고흥: https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/행복고흥L.woff
+	Moirai One: https://fonts.googleapis.com/css2?family=Moirai+One&display=swap
+
+[English]
+serif:
+	Newsreader: https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap
+	PT Serif: https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap
+	DM Serif Display: https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap
+	DM Serif Text: https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap
+	Source Serif 4: https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap
+	Noto Serif Display: https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap
+	Playfair Display: https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap
+	Glida Display: https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap
+	Merriweather: https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap
+	Lora: https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap
+	Baskervville: https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap
+	Baskervville Sc: https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap
+	Libre Baskerville: https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap
+	EB Garamond: https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap
+	Bitter: https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap
+	Crimson Text: https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap
+	Spectral: https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap
+	Patua One: https://fonts.googleapis.com/css2?family=Patua+One&display=swap
+	Shippori Mincho: https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap
+	Gelasio: https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap
+	Gupter: https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&display=swap
+	STIX Two Text: https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap
+	Yrsa: https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap
+	Ibarra Real Nova: https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap
+	Caprasimo: https://fonts.googleapis.com/css2?family=Caprasimo&display=swap
+	Wittgenstein: https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap
+	Bacasime Antique: https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap
+	Gentium Plus: https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap
+	Gentium Book Plus: https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap
+	Vokllkorn: https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap
+	Calistoga: https://fonts.googleapis.com/css2?family=Calistoga&display=swap
+	Shrikhand: https://fonts.googleapis.com/css2?family=Shrikhand&display=swap
+	Yuji Syuku: https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap
+	Poly: https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap
+	Luxurious Roman: https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap
+	Vesper Libre: https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700;900&display=swap
+	Rhodium Libre: https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap
+	Domine: https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap
+	Inria Serif: https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap
+	Manuale: https://fonts.googleapis.com/css2?family=Manuale:ital,wght@0,300..800;1,300..800&display=swap
+	
+san-serif:
+	Noto Sans: https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap
+	PT Sans: https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap
+	Roboto: https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap
+	Roboto Mono: https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap
+	Roboto Condensed: https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap
+	Ubuntu: https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap
+	Open Sans: https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap
+	Inter: https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap
+	Montserrat: https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap
+	Oswald: https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap
+	Bebas Neue: https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap
+	Anton: https://fonts.googleapis.com/css2?family=Anton&display=swap
+	Teko: https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap
+	카페24 Decoshadow: https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Decoshadow.woff2
+	Faculty Glyphic: https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap
+	Viaoda Libre: https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap
+	IBM Plex Mono: https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap
+	Inconsolata: https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap
+	Source Code Pro: https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap
+
+script:
+	Oleo Script: https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap
+	Great Vibes: https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap
+	Alex Brush: https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap
+	Tangerine: https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap
+	Italianno: https://fonts.googleapis.com/css2?family=Italianno&display=swap
+	Charm: https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap
+	Petit Formal Script: https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap
+	Quintessential: https://fonts.googleapis.com/css2?family=Quintessential&display=swap
+	Aguafina Script: https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap
+	Bilbo Swash Caps: https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap
+	Dynalight: https://fonts.googleapis.com/css2?family=Dynalight&display=swap

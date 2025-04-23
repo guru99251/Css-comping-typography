@@ -14,6 +14,7 @@ const pLetterSpacingInput  = document.getElementById('p-letter-spacing');
 
 // H1 controls
 const h1FontInput           = document.getElementById('h1-font');
+const h1FontSelect          = document.getElementById('h1-font-select');
 const h1FontWeightInput     = document.getElementById('h1-font-weight');
 const h1FontSizeInput       = document.getElementById('h1-font-size');
 const h1LetterSpacingInput  = document.getElementById('h1-letter-spacing');
@@ -25,6 +26,7 @@ const h1TextTransformSelect = document.getElementById('h1-text-transform');
 
 // H2 controls
 const h2FontInput           = document.getElementById('h2-font');
+const h2FontSelect          = document.getElementById('h2-font-select');
 const h2FontWeightInput     = document.getElementById('h2-font-weight');
 const h2FontSizeInput       = document.getElementById('h2-font-size');
 const h2LetterSpacingInput  = document.getElementById('h2-letter-spacing');
@@ -37,6 +39,8 @@ const h2TextTransformSelect = document.getElementById('h2-text-transform');
 
 // Subtitle controls
 const pSpaceFontInput       = document.getElementById('p-space-font');
+const pFontSelect           = document.getElementById('p-font-select');
+const pSpaceFontSelect      = document.getElementById('p-space-font-select');
 const pSpaceFontSizeInput   = document.getElementById('p-space-font-size');
 const pSpaceLetterSpacingInput = document.getElementById('p-space-letter-spacing');
 const pSpaceLineHeightInput = document.getElementById('p-space-line-height');
@@ -95,6 +99,61 @@ controlsToggleBtn.addEventListener('click', () => {
   typographyControls.classList.toggle('collapsed');
   controlsToggleBtn.textContent = typographyControls.classList.contains('collapsed') ? '☰' : '✕';
 });
+
+// 폰트 선택기에서 선택된 폰트 이름을 가져오기
+let fontGroups = [];
+
+fetch('web-fonts.json')
+  .then(res => res.json())
+  .then(({ groups }) => {
+    fontGroups = groups;
+    [h1FontSelect, pSpaceFontSelect, h2FontSelect, pFontSelect]
+      .forEach(sel => populateFontSelect(sel, groups));
+  });
+
+function populateFontSelect(sel, groups) {
+  groups.forEach(group => {
+    const og = document.createElement('optgroup');
+    og.label = group.label;
+    group.fonts.forEach(f => {
+      const o = document.createElement('option');
+      o.value       = f.url;
+      o.textContent = f.name;
+      og.appendChild(o);
+    });
+    sel.appendChild(og);
+  });
+  // ‘직접 입력’ 옵션 별도 추가
+  const manual = document.createElement('option');
+  manual.value       = '';
+  manual.textContent = '직접 입력';
+  sel.appendChild(manual);
+}
+
+// 폰트 선택기와 입력창 연결
+function wireFontSelect(selectEl, inputEl) {
+  // 초기: select 에서 값 고르면 input 숨기고 업데이트
+  selectEl.addEventListener('change', () => {
+    if (selectEl.value === '') {
+      // 직접입력 모드
+      inputEl.style.display = '';
+      inputEl.value = '';
+    } else {
+      inputEl.style.display = 'none';
+      inputEl.value = selectEl.value;
+      updateStyles();
+    }
+  });
+  // input 에 직접 쓰면 바로 스타일 업데이트
+  inputEl.addEventListener('input', updateStyles);
+}
+
+// wire up 네 군데
+wireFontSelect(h1FontSelect,   h1FontInput);
+wireFontSelect(pSpaceFontSelect, pSpaceFontInput);
+wireFontSelect(h2FontSelect,     h2FontInput);
+wireFontSelect(pFontSelect,      pFontInput);
+
 
 
 // 웹 폰트 URL 검사 및 로딩, family 이름 추출

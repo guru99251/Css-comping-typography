@@ -15,7 +15,13 @@
   <!-- Floating controls -->
   <div class="typography-controls">
     <h2>H1 설정</h2>
-    <label>Font Family: <input type="text" id="h1-font" value="Noto Sans KR"></label>
+    <label>Font Family:
+      <!-- 폰트 선택 드롭다운 -->
+      <select id="h1-font-select"></select>
+      <!-- 직접입력용 텍스트필드 (초기에는 숨김) -->
+      <input type="text" id="h1-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
     <label>Font Weight: <select id="h1-font-weight">
       <option value="100">100</option>
       <option value="200">200</option>
@@ -49,7 +55,13 @@
 
 
     <h2>부주제 설정</h2>
-    <label>Font Family: <input type="text" id="p-space-font" value="Noto Sans KR"></label>
+    <label>Font Family:
+      <!-- 폰트 선택 드롭다운 -->
+      <select id="p-space-font-select"></select>
+      <!-- 직접입력용 텍스트필드 (초기에는 숨김) -->
+      <input type="text" id="p-space-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
     <label>Font Size (px): <input type="number" id="p-space-font-size" value="13" step="0.5"></label>
     <label>Letter Spacing (px): <input type="number" id="p-space-letter-spacing" value="0" step="0.1"></label>
     <label>Line Height (%): <input type="number" id="p-space-line-height" value="175" step="1"></label>
@@ -64,7 +76,13 @@
 
 
     <h2>H2 설정</h2>
-    <label>Font Family: <input type="text" id="h2-font" value="Noto Sans KR"></label>
+    <label>Font Family:
+      <!-- 폰트 선택 드롭다운 -->
+      <select id="h2-font-select"></select>
+      <!-- 직접입력용 텍스트필드 (초기에는 숨김) -->
+      <input type="text" id="h2-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
     <label>Font Weight: <select id="h2-font-weight">
       <option value="100">100</option>
       <option value="200">200</option>
@@ -99,7 +117,11 @@
 
 
     <h2>본문 설정</h2>
-    <label>Font Family: <input type="text" id="p-font" value="Noto Sans KR"></label>
+    <label>Font Family:
+      <select id="p-font-select"></select>
+      <input type="text" id="p-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
     <label>Font Size (px): <input type="number" id="p-font-size" value="15" step="0.5"></label>
     <label>Letter Spacing (px): <input type="number" id="p-letter-spacing" value="0" step="0.1"></label>
     <label>Line Height (%): <input type="number" id="p-line-height" value="160" step="1"></label>

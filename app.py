@@ -19,6 +19,10 @@ def serve_js():
 def serve_translations():
     return send_from_directory('.', 'translations.json')
 
+@app.route('/web-fonts.json')
+def serve_web_fonts():
+    return send_from_directory('.', 'web-fonts.json', mimetype='application/json')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 3000))
     app.run(host='0.0.0.0', port=port)
