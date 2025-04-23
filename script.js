@@ -245,14 +245,14 @@ function updateStyles() {
 
   // 배경색
   paraContainer.style.backgroundColor = pBgColorInput.value;
-
-  // 요약 업데이트: 모든 Font Family 나열
+  
+  // 요약 업데이트: 추출된 폰트 이름만 나열
   displayFontFamily.textContent = [
-    `${h1FontInput.value}`,
-    `${pSpaceFontInput.value}`,
-    `${h2FontInput.value}`,
-    `${pFontInput.value}`
-  ].join('  |  ');
+    getFontFamily(h1FontInput.value),
+    getFontFamily(pSpaceFontInput.value),
+    getFontFamily(h2FontInput.value),
+    getFontFamily(pFontInput.value)
+    ].join('  |  ');
 
   // 나머지 요약
   displayTypeSize.textContent       = `${pFontSizeInput.value}px`;
