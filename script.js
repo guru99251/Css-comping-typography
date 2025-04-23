@@ -69,6 +69,17 @@ const displayH2Color        = document.getElementById('display-h2-color');
 const displayPColor         = document.getElementById('display-p-color');
 const displayBgColor        = document.getElementById('display-bg-color');
 
+// 로드된 폰트 링크를 저장할 Set
+const loadedFontLinks = new Set();
+const fontInputs = [
+  document.getElementById('h1-font'),
+  document.getElementById('p-space-font'),
+  document.getElementById('h2-font'),
+  document.getElementById('p-font'),
+];
+
+const loadedFontStyles = new Set();
+
 // — 이벤트 바인딩 —
 const controls = [
   h1FontInput, h1FontWeightInput, h1FontSizeInput, h1LetterSpacingInput, h1LineHeightInput, h1BoldInput, h1ItalicInput, h1ColorInput, h1TextTransformSelect,
@@ -79,11 +90,67 @@ const controls = [
 ].filter(Boolean);
 controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
 
+
 // 토글 버튼 클릭 시 접고/펼치기
 controlsToggleBtn.addEventListener('click', () => {
   typographyControls.classList.toggle('collapsed');
   controlsToggleBtn.textContent = typographyControls.classList.contains('collapsed') ? '☰' : '✕';
 });
+
+
+// 웹 폰트 URL 검사 및 로딩, family 이름 추출
+/*
+ * value 값이
+ *  1) .css URL → <link>로 주입
+ *  2) .woff/.woff2/.ttf/.otf URL → <style>@font-face</style>로 주입
+ *  3) 그 외 → 그냥 family 이름으로 반환
+ */
+
+function getFontFamily(value) {
+  const v = value.trim();
+
+  // 1) CSS 스타일시트 URL
+  if (/\.css($|\?)/i.test(v)) {
+    if (!loadedFontStyles.has(v)) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = v;
+      document.head.appendChild(link);
+      loadedFontStyles.add(v);
+    }
+    try {
+      // Google Fonts처럼 ?family=Name:… 파라미터에서 이름만 뽑아내기
+      return new URL(v).searchParams.get('family')
+        .split(':')[0]
+        .replace(/\+/g, ' ');
+    } catch {
+      return v;
+    }
+  }
+
+  // 2) 폰트 파일 URL
+  if (/\.(woff2?|ttf|otf)($|\?)/i.test(v)) {
+    if (!loadedFontStyles.has(v)) {
+      const parts = v.split('/');
+      const filename = parts[parts.length - 1];
+      const name = filename.split('.')[0];          // `BookkMyungjo-Bd` 
+      const format = filename.split('.').pop();     // `woff2`
+      const styleTag = document.createElement('style');
+      styleTag.textContent = `
+@font-face {
+  font-family: '${name}';
+  src: url('${v}') format('${format}');
+}`;
+      document.head.appendChild(styleTag);
+      loadedFontStyles.add(v);
+    }
+    // 자동으로 추출한 이름 반환
+    return v.split('/').pop().split('.')[0];
+  }
+
+  // 3) 순수 폰트명
+  return v;
+}
 
 // — 스타일 업데이트 함수 — 
 function updateStyles() {
@@ -93,6 +160,7 @@ function updateStyles() {
   const pEls   = paraContainer.querySelectorAll('p:not(.space-vertical)');
 
   // H1
+  const h1Family = getFontFamily(h1FontInput.value);
   h1Els.forEach(el => {
     el.style.marginTop      = '0';
     const lh1               = parseFloat(h1LineHeightInput.value);
@@ -106,9 +174,11 @@ function updateStyles() {
     el.style.textTransform  = h1TextTransformSelect.value;
     el.style.color          = h1ColorInput.value;
     el.style.textAlign = h1TextAlignSelect.value;
+    el.style.fontFamily     = h1Family;
   });
 
   // H2
+  const h2Family = getFontFamily(h2FontInput.value);
   h2Els.forEach(el => {
     el.style.marginTop      = '0';
     const lh2               = parseFloat(h2LineHeightInput.value);
@@ -126,9 +196,11 @@ function updateStyles() {
                               : 'none';
     el.style.textAlign   = h2TextAlignSelect.value;
     el.style.paddingLeft = h2BorderInput.checked ? '0.5rem' : '0';
+    el.style.fontFamily     = h2Family;
   });
 
   // 부주제
+  const subFamily = getFontFamily(pSpaceFontInput.value);
   subEls.forEach(el => {
     el.style.marginTop      = '0';
     const lh3               = parseFloat(pSpaceLineHeightInput.value);
@@ -141,9 +213,11 @@ function updateStyles() {
     el.style.fontStyle      = pSpaceItalicInput.checked ? 'italic' : 'normal';
     el.style.color          = pSpaceColorInput.value;
     el.style.textAlign      = pSpaceAlignSelect.value;
+    el.style.fontFamily     = subFamily;
   });
 
   // 본문
+  const pFamily = getFontFamily(pFontInput.value);
   pEls.forEach(el => {
     el.style.fontFamily     = pFontInput.value;
     el.style.fontWeight     = pBoldInput.checked ? 'bold' : 'normal';
@@ -154,6 +228,7 @@ function updateStyles() {
     el.style.color          = pColorInput.value;
     el.style.textAlign      = pJustifyInput.checked ? 'justify' : 'left';
     el.style.letterSpacing = `${pLetterSpacingInput.value}px`;
+    el.style.fontFamily     = pFamily;
   });
 
   // 배경색
@@ -182,6 +257,12 @@ function updateStyles() {
 
 // — CSS 출력 생성 — 
 function updateCssOutput() {
+    // 로드된 모든 폰트 링크를 @import 로 출력
+    let importCss = '';
+    loadedFontLinks.forEach(url => {
+      importCss += `@import url('${url}');\n`;
+    });
+
   // 각 extra 값 재계산
   const lh1 = parseFloat(h1LineHeightInput.value);
   const ex1 = (lh1/100 - 1) * parseFloat(h1FontSizeInput.value);
@@ -191,6 +272,7 @@ function updateCssOutput() {
   const ex3 = (lh3/100 - 1) * parseFloat(pSpaceFontSizeInput.value);
 
   cssOutput.value = `
+${importCss}
 /* paragraph-container */
 .paragraph-container {
   background-color: ${pBgColorInput.value};
@@ -200,7 +282,7 @@ function updateCssOutput() {
 .paragraph-container h1 {
   margin-top: 0;
   margin-bottom: ${ex1}px;
-  font-family: ${h1FontInput.value};
+  font-family: ${getFontFamily(h1FontInput.value)};
   font-weight: ${h1BoldInput.checked ? 'bold' : h1FontWeightInput.value};
   font-size: ${h1FontSizeInput.value}px;
   letter-spacing: ${h1LetterSpacingInput.value}px;
@@ -214,7 +296,7 @@ function updateCssOutput() {
 .paragraph-container h2 {
   margin-top: 0;
   margin-bottom: ${ex2}px;
-  font-family: ${h2FontInput.value};
+  font-family: ${getFontFamily(h2FontInput.value)};
   font-weight: ${h2BoldInput.checked ? 'bold' : h2FontWeightInput.value};
   font-size: ${h2FontSizeInput.value}px;
   letter-spacing: ${h2LetterSpacingInput.value}px;
@@ -230,7 +312,7 @@ function updateCssOutput() {
 .paragraph-container .space-vertical {
   margin-top: 0;
   margin-bottom: ${ex3}px;
-  font-family: ${pSpaceFontInput.value};
+  font-family: ${getFontFamily(pSpaceFontInput.value)};
   font-weight: ${pSpaceBoldInput.checked ? 'bold' : 'normal'};
   font-size: ${pSpaceFontSizeInput.value}px;
   letter-spacing: ${pSpaceLetterSpacingInput.value}px;
@@ -241,7 +323,7 @@ function updateCssOutput() {
 
 /* body paragraphs */
 .paragraph-container p:not(.space-vertical) {
-  font-family: ${pFontInput.value};
+  font-family: ${getFontFamily(pFontInput.value)};
   font-weight: ${pBoldInput.checked ? 'bold' : 'normal'};
   font-size: ${pFontSizeInput.value}px;
   letter-spacing: ${pLetterSpacingInput.value}px;
