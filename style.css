@@ -250,3 +250,30 @@ strong {
     display: flex;
   }
 }
+
+/* 모바일에서 .typography-container 숨기고, .paragraph-container 여백 없애기 */
+@media (max-width: 768px) {
+  /* 1) 요약 패널(.typography-container) 숨기기 */
+  .typography-container {
+    display: none !important;
+  }
+
+  /* 2) 본문 컨테이너(.paragraph-container) 여백 제거 후 가로 꽉 채우기 */
+  .paragraph-container {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;    /* 모서리 둥글게 제거 */
+    box-shadow: none !important;     /* 그림자 제거 (선택사항) */
+  }
+
+  /* 3) 페이지 자체의 좌우 패딩도 제거해야 화면 끝까지 배경이 닿습니다. */
+  body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .layout {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
