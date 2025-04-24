@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타이포그래피 콤핑</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 컨트롤 토글 버튼 -->
+  <button id="controls-toggle-btn" class="controls-toggle-btn">☰</button>
+  <!-- 요약(typography) 토글 버튼 -->
+  <button id="summary-toggle-btn" class="controls-toggle-btn">⮜</button>
+  
+  <!-- Floating controls -->
+  <div class="typography-controls">
+    <h2>H1 설정</h2>
+    <label>Font Family:
+      <!-- 폰트 선택 드롭다운 -->
+      <select id="h1-font-select"></select>
+      <!-- 직접입력용 텍스트필드 (초기에는 숨김) -->
+      <input type="text" id="h1-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
+    <label>Font Weight: <select id="h1-font-weight">
+      <option value="100">100</option>
+      <option value="200">200</option>
+      <option value="300">300</option>
+      <option value="400">400</option>
+      <option value="500">500</option>
+      <option value="600">600</option>
+      <option value="700" selected>700</option>
+      <option value="800">800</option>
+      <option value="900">900</option>
+    </select></label>
+    <label>Font Size (px): <input type="number" id="h1-font-size" value="36" step="0.5"></label>
+    <label>Letter Spacing (px): <input type="number" id="h1-letter-spacing" value="0" step="0.1"></label>
+    <label>Line Height (%): <input type="number" id="h1-line-height" value="130" step="1"></label>
+    <label>Color: <input type="color" id="h1-color" value="#222222"></label>
+    <label>Text Transform: <select id="h1-text-transform">
+      <option value="none" selected>none</option>
+      <option value="uppercase">uppercase</option>
+      <option value="lowercase">lowercase</option>
+      <option value="capitalize">capitalize</option>
+    </select></label>
+    <label>Text Align: 
+      <select id="h1-text-align">
+        <option value="left">왼쪽</option>
+        <option value="center">중앙</option>
+        <option value="right">오른쪽</option>
+      </select>
+    </label>
+    <span style="display:inline-block;">Bold: <input type="checkbox" id="h1-bold"></span>
+    <span style="display:inline-block;">Italic: <input type="checkbox" id="h1-italic"></span>
+    <div class="border-controls">
+      <label>Border Side:
+        <select id="h1-border-side">
+          <option value="none">none</option>
+          <option value="left">left</option>
+          <option value="top">top</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </label>
+      <label>Width (px): <input type="number" id="h1-border-width" value="4" step="0.1"></label>
+      <label>Style:
+        <select id="h1-border-style">
+          <option>solid</option>
+          <option>dashed</option>
+          <option>dotted</option>
+          <option>double</option>
+          <option>groove</option>
+        </select>
+      </label>
+      <label>Color: <input type="color" id="h1-border-color" value="#222222"></label>
+      <label>Padding (px): <input type="number" id="h1-border-padding" value="8" step="1"></label>
+    </div>
+
+
+    <h2>부주제 설정</h2>
+    <label>Font Family:
+      <!-- 폰트 선택 드롭다운 -->
+      <select id="p-space-font-select"></select>
+      <!-- 직접입력용 텍스트필드 (초기에는 숨김) -->
+      <input type="text" id="p-space-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
+    <label>Font Size (px): <input type="number" id="p-space-font-size" value="13" step="0.5"></label>
+    <label>Letter Spacing (px): <input type="number" id="p-space-letter-spacing" value="0" step="0.1"></label>
+    <label>Line Height (%): <input type="number" id="p-space-line-height" value="175" step="1"></label>
+    <label>Color: <input type="color" id="p-space-color" value="#333333"></label>
+    <label>Text Align: <select id="p-space-align">
+      <option value="left">좌측</option>
+      <option value="center">중앙</option>
+      <option value="right">우측</option>
+    </select></label>
+    <span style="display:inline-block;">Bold: <input type="checkbox" id="p-space-bold"></span>
+    <span style="display:inline-block;">Italic: <input type="checkbox" id="p-space-italic"></span>
+    <div class="border-controls">
+      <label>Border Side:
+        <select id="p-space-border-side">
+          <option value="none">none</option>
+          <option value="left">left</option>
+          <option value="top">top</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </label>
+      <label>Width (px): <input type="number" id="p-space-border-width" value="4" step="0.1"></label>
+      <label>Style:
+        <select id="p-space-border-style">
+          <option>solid</option>
+          <option>dashed</option>
+          <option>dotted</option>
+          <option>double</option>
+          <option>groove</option>
+        </select>
+      </label>
+      <label>Color: <input type="color" id="p-space-border-color" value="#222222"></label>
+      <label>Padding (px): <input type="number" id="p-space-border-padding" value="8" step="1"></label>
+    </div>
+
+
+
+    <h2>H2 설정</h2>
+    <label>Font Family:
+      <!-- 폰트 선택 드롭다운 -->
+      <select id="h2-font-select"></select>
+      <!-- 직접입력용 텍스트필드 (초기에는 숨김) -->
+      <input type="text" id="h2-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
+    <label>Font Weight: <select id="h2-font-weight">
+      <option value="100">100</option>
+      <option value="200">200</option>
+      <option value="300">300</option>
+      <option value="400">400</option>
+      <option value="500" selected>500</option>
+      <option value="600">600</option>
+      <option value="700">700</option>
+      <option value="800">800</option>
+      <option value="900">900</option>
+    </select></label>
+    <label>Font Size (px): <input type="number" id="h2-font-size" value="20" step="0.5"></label>
+    <label>Letter Spacing (px): <input type="number" id="h2-letter-spacing" value="0" step="0.1"></label>
+    <label>Line Height (%): <input type="number" id="h2-line-height" value="130" step="1"></label>
+    <label>Color: <input type="color" id="h2-color" value="#1e88e5"></label>
+    <label>Text Transform: <select id="h2-text-transform">
+      <option value="none" selected>none</option>
+      <option value="uppercase">uppercase</option>
+      <option value="lowercase">lowercase</option>
+      <option value="capitalize">capitalize</option>
+    </select></label>
+    <label>Text Align: 
+      <select id="h2-text-align">
+        <option value="left">왼쪽</option>
+        <option value="center">중앙</option>
+        <option value="right">오른쪽</option>
+      </select>
+    </label>
+    <span style="display:inline-block;">Bold: <input type="checkbox" id="h2-bold"></span>
+    <span style="display:inline-block;">Italic: <input type="checkbox" id="h2-italic"></span>
+    <span style="display:inline-block;">Border Left: <input type="checkbox" id="h2-border" checked></span>
+    <div class="border-controls">
+      <label>Border Side:
+        <select id="h2-border-side">
+          <option value="none">none</option>
+          <option value="left">left</option>
+          <option value="top">top</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </label>
+      <label>Width (px): <input type="number" id="h2-border-width" value="4" step="0.1"></label>
+      <label>Style:
+        <select id="h2-border-style">
+          <option>solid</option>
+          <option>dashed</option>
+          <option>dotted</option>
+          <option>double</option>
+          <option>groove</option>
+        </select>
+      </label>
+      <label>Color: <input type="color" id="h2-border-color" value="#222222"></label>
+      <label>Padding (px): <input type="number" id="h2-border-padding" value="8" step="1"></label>
+    </div>
+
+
+
+    <h2>본문 설정</h2>
+    <label>Font Family:
+      <select id="p-font-select"></select>
+      <input type="text" id="p-font" placeholder="직접 입력"
+      style="display:none; width:60%; margin-top:0.5rem;">
+    </label>
+    <label>Font Size (px): <input type="number" id="p-font-size" value="15" step="0.5"></label>
+    <label>Letter Spacing (px): <input type="number" id="p-letter-spacing" value="0" step="0.1"></label>
+    <label>Line Height (%): <input type="number" id="p-line-height" value="160" step="1"></label>
+    <label>Line Length (ch): <input type="number" id="p-line-length" value="65"></label>
+    <label>Color: <input type="color" id="p-color" value="#333333"></label>
+    <span style="display:inline-block;">Bold: <input type="checkbox" id="p-bold"></span>
+    <span style="display:inline-block;">Italic: <input type="checkbox" id="p-italic"></span>
+    <span class="inline-block">Justify: <input type="checkbox" id="p-justify" checked></span>
+ 
+
+    <h2>배경색 설정</h2>
+    <label>Background Color: <input type="color" id="p-bg-color" value="#ffffff"></label>
+
+    <button id="copy-css-btn">CSS 복사</button>
+    <button id="toggle-english-btn">영어 전환</button>
+    <textarea id="css-output" readonly style="width:100%; height:150px;"></textarea>
+  </div>
+
+  <div class="layout">
+    <div class="typography-container">
+      <!-- summary -->
+      <h1>타이포 콤핑 - CSS</h1>
+      <p class="small" id="summary">
+        이 웹사이트는 <br>
+        Web의 읽기 경험을 향상시키기 위해<br>
+        나만의 Web Typography를 설정하는 도구입니다.<br>
+        CSS 코드를 생성하고 복사할 수 있습니다.<br>
+      </p>
+      <p class="small">
+        [ 사용법 ]<br>
+        - 텍스트 위계별로 원하는 폰트와 수치 선택<br>
+        - 본문 더블 클릭 -> 텍스트 수정 가능<br>
+        - 한-영 전환 지원<br>
+        - 원하는 웹 폰트 링크를 복붙 가능<br>
+        >>> <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> / 
+            <a href="https://noonnu.cc/index" target="_blank">눈누</a><br>
+        >>> <em>@import</em>나 <em>url</em>의 <br>
+        >>> <em>https://~</em> <em>"~=swap"</em>, <em>"~.woff2"</em> 부분<br>
+      </p>
+      <h2>1. Font Family</h2>
+      <p>폰트 패밀리: <strong id="display-font-family"></strong></p>
+      <h2>2. Type Size</h2>
+      <p>(본문)활자 크기: <strong id="display-type-size"></strong></p>
+      <h2>3. Line Height</h2>
+      <p>(본문)줄 간격: <strong id="display-line-height"></strong></p>
+      <h2>4. Line Length</h2>
+      <p>(본문)글 줄 길이: <strong id="display-line-length"></strong> (<code id="display-line-length-code"></code>)</p>
+      <h2>5. Font Color</h2>
+      <p>
+        h1: <strong id="display-h1-color"></strong><br>
+        h2: <strong id="display-h2-color"></strong><br>
+        본문(p): <strong id="display-p-color"></strong>
+      </p>
+      <h2>6. Background Color</h2>
+      <p>배경 색상: <strong id="display-bg-color"></strong></p>
+    </div>
+
+    <div class="paragraph-container" contenteditable="true">
+      <h1 data-i18n-key="chapter1">1장 앙리 까르띠에-브뤼송</h1>
+      <p class="space-vertical" data-i18n-key="intro">들어가기에 앞서</p>
+      <h2 data-i18n-key="section1">1. 현대 사진의 출발</h2>
+      <p data-i18n-key="body1">까르띠에 브레쏭은 소재가 가장 함축적인 국면을 드러내며, 환기력을 가장 잘 발휘하는 형상에 놓이게 되는 바로 그 순간을 읽어내는 데에 능했다. 그는 소형 사진기가 그런 것을 즉시 사진에 담게 할 수 있는—마치 육안의 연장처럼—이상적인 무기임을 알고 있었다. 이것은 우연에 의존하는 것과는 결코 다른 것이다. 그는 파인더를 통해 항상 음화 전체의 짜임새를 고려하며 구성한다. 그의 초기 작품들—그는 1932년 그의 첫 번째 라이카를 구입했다—에는 형태의 강조와 더불어 평범한 눈으로는 시공에서 보이지 않을 그런 평범한 것의 측면을 포획한 기쁨이 있다. 인간에 대한 그의 관심은 보다 열정적인 것이었다. 1938년 런던에서의 조지Ⅵ세의 대관식 사진과 같은 거의 풍자화에 가까운 작품도 적지않게 제작했다. 거기에서 그는 화려한 구경거리를 보여주는 것이 아니라 무심한 구경꾼들을 보여주었던 것이다. 그는 렌즈에 의해 맺히는 끊임없이 움직이고 있는 이미지가, 형태와 표현 그리고 내용의 시간을 뛰어넘어 영원한 조화를 획득하는, 바로 그 절정의 한 순간을 붙잡는 데에 탁월한 능력을 보여주고 있다. 그는 신속하게 계속적으로 촬영할 수 있는 35mm 사진기의 능력을 잘 보여준 탁월한 사례를 남겼고, 혼신의 힘을 다해 작업하고 있다.
+        그는 생애의 대부분을 주로 전세계를 무대로 촬영 여행을 하는 것으로 보냈다. 그런데 어느 나라에서 찍은 사진이든 민족적 특징이나 국가마다의 고유한 지역적 색채가 전혀 풍기지 않고 거의 똑같이 일상적 상황만이 공통되게 처리되었다. 그래서 그의 사진에는 찍힌 대상들의 개별적 특징이 전혀 드러나지 않고 오직 일상적 상황만이 한결같이 부각되어 있을 뿐이다. 바로 이 점이 까르띠에-브레쏭의 사진 미학에서 주목되는 특징의 하나이다. 그의 사진에서의 주제는 언제나 일상적 상황 바로 그것이었다.
+        그가 사진에 담으려는 주제가 이렇게 평범했던 것과 마찬가지로 대상을 바라보는 시선도 또한 지극히 평범한 것이다. 그는 오로지 라이카 사진기에 거의 대부분 50mm 렌즈를 끼고 대상을 찍었다. 예외로 광각렌즈나 망원렌즈를 쓸 수밖에 없는 경우에도 고작 35mm 광각렌즈나 준 망원렌즈를 사용할 뿐이었다. 그래서 가능한 한 평범한 시선의 궤도를 벗어나려 하지 않았다. 그러니까 그는 일상적 시선으로 모든 사진의 대상들을 처리하였던 것이다.
+        까르띠에-브레쏭의 결정적 순간이 지니고 있는 의의는 촬영 기법의 기민한 반응, 즉 명사수가 표적의 한가운데를 꿰뚫는 놀라운 적중률과 같은 단계를 하나 더 넘어선 것이다. 그의 사진에서 누구나가 감탄을 금치 못하는, 의미 내용과 사진적 형식의 완전에 가까운 일치는 뒤집어서 생각하면, 사진이 본능적으로 함유하고 있는 내용과 언어와의 자동적인 일치기능에서 온 동일한 의미전달이라고 할 수 있다.
+        그의 이러한 사진에 대한 완성도는 제2차 세계대전 후 50년대의 새로운 영상사진의 등장을 가져왔다. 제2차 세계대전 후 젊은 세대들에 의해 전개된 영상사진의 새로운 성격은 인간의 내면의식과 영상언어의 심층적인 일치에 대한 추구였다. 로버트 프랭크(Robert Frank), 윌리암 클래인(Wiliam Klein), 그리고 엘스킨(Van Der Elsken) 등에 의해 주도된 영상사진의 새로운 자각은 이미 까르띠에-브레쏭의 사진작업에서 자각된 실마리의 본격적이며 적극적인 추구라고 말할 수 있다.</p>
+      </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
