@@ -83,6 +83,24 @@ const typographyContainer   = document.querySelector('.typography-container');
 const layout                = document.querySelector('.layout');
 let isCollapsedSummary      = false;
 
+// Border 관련 요소
+// H1 Border
+const h1BorderSideInput  = document.getElementById('h1-border-side');
+const h1BorderWidthInput = document.getElementById('h1-border-width');
+const h1BorderStyleInput = document.getElementById('h1-border-style');
+const h1BorderColorInput = document.getElementById('h1-border-color');
+// Subtitle Border (p-space)
+const pSpaceBorderSideInput  = document.getElementById('p-space-border-side');
+const pSpaceBorderWidthInput = document.getElementById('p-space-border-width');
+const pSpaceBorderStyleInput = document.getElementById('p-space-border-style');
+const pSpaceBorderColorInput = document.getElementById('p-space-border-color');
+// H2 Border
+const h2BorderSideInput  = document.getElementById('h2-border-side');
+const h2BorderWidthInput = document.getElementById('h2-border-width');
+const h2BorderStyleInput = document.getElementById('h2-border-style');
+const h2BorderColorInput = document.getElementById('h2-border-color');
+
+
 // — 이벤트 바인딩 —
 const controls = [
   h1FontInput, h1FontWeightInput, h1FontSizeInput, h1LetterSpacingInput, h1LineHeightInput, h1BoldInput, h1ItalicInput, h1ColorInput, h1TextTransformSelect,
@@ -91,6 +109,14 @@ const controls = [
   pFontInput, pFontSizeInput, pLineHeightInput, pLineLengthInput, pBoldInput, pItalicInput, pColorInput, pJustifyInput,
   pBgColorInput, h1TextAlignSelect, h2TextAlignSelect, pLetterSpacingInput,
 ].filter(Boolean);
+controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
+
+
+controls.push(
+  h1BorderSideInput, h1BorderWidthInput, h1BorderStyleInput, h1BorderColorInput,
+  pSpaceBorderSideInput, pSpaceBorderWidthInput, pSpaceBorderStyleInput, pSpaceBorderColorInput,
+  h2BorderSideInput, h2BorderWidthInput, h2BorderStyleInput, h2BorderColorInput
+);
 controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
 
 
@@ -238,6 +264,10 @@ function updateStyles() {
 
   // H1
   const h1Family = getFontFamily(h1FontInput.value);
+  const h1Side  = h1BorderSideInput.value;
+  const h1BW    = `${h1BorderWidthInput.value}px`;
+  const h1BS    = h1BorderStyleInput.value;
+  const h1BC    = h1BorderColorInput.value;
   h1Els.forEach(el => {
     el.style.marginTop      = '0';
     const lh1               = parseFloat(h1LineHeightInput.value);
@@ -252,10 +282,49 @@ function updateStyles() {
     el.style.color          = h1ColorInput.value;
     el.style.textAlign = h1TextAlignSelect.value;
     el.style.fontFamily     = h1Family;
+    
+    ['Left','Top','Bottom'].forEach(pos => {
+      el.style['border' + pos] = 'none';
+    });
+    if (h1Side !== 'none') {
+      el.style['border' + h1Side.charAt(0).toUpperCase() + h1Side.slice(1)] =
+        `${h1BW} ${h1BS} ${h1BC}`;
+    }
+  });
+
+  // 부주제
+  const subFamily = getFontFamily(pSpaceFontInput.value);
+  const psSide  = pSpaceBorderSideInput.value;
+  const psBW    = `${pSpaceBorderWidthInput.value}px`;
+  const psBS    = pSpaceBorderStyleInput.value;
+  const psBC    = pSpaceBorderColorInput.value;
+  subEls.forEach(el => {
+    el.style.marginTop      = '0';
+    const lh3               = parseFloat(pSpaceLineHeightInput.value);
+    const extra3            = (lh3/100 - 1) * parseFloat(pSpaceFontSizeInput.value);
+    el.style.marginBottom   = `${extra3}px`;
+    el.style.fontFamily     = pSpaceFontInput.value;
+    el.style.fontWeight     = pSpaceBoldInput.checked ? 'bold' : 'normal';
+    el.style.fontSize       = `${pSpaceFontSizeInput.value}px`;
+    el.style.letterSpacing  = `${pSpaceLetterSpacingInput.value}px`;
+    el.style.fontStyle      = pSpaceItalicInput.checked ? 'italic' : 'normal';
+    el.style.color          = pSpaceColorInput.value;
+    el.style.textAlign      = pSpaceAlignSelect.value;
+    el.style.fontFamily     = subFamily;
+    
+    ['Left','Top','Bottom'].forEach(pos => { el.style['border'+pos] = 'none'; });
+    if (psSide !== 'none') {
+      el.style['border' + psSide.charAt(0).toUpperCase() + psSide.slice(1)] =
+        `${psBW} ${psBS} ${psBC}`;
+    }
   });
 
   // H2
   const h2Family = getFontFamily(h2FontInput.value);
+  const h2Side  = h2BorderSideInput.value;
+  const h2BW    = `${h2BorderWidthInput.value}px`;
+  const h2BS    = h2BorderStyleInput.value;
+  const h2BC    = h2BorderColorInput.value;
   h2Els.forEach(el => {
     el.style.marginTop      = '0';
     const lh2               = parseFloat(h2LineHeightInput.value);
@@ -274,23 +343,12 @@ function updateStyles() {
     el.style.textAlign   = h2TextAlignSelect.value;
     el.style.paddingLeft = h2BorderInput.checked ? '0.5rem' : '0';
     el.style.fontFamily     = h2Family;
-  });
-
-  // 부주제
-  const subFamily = getFontFamily(pSpaceFontInput.value);
-  subEls.forEach(el => {
-    el.style.marginTop      = '0';
-    const lh3               = parseFloat(pSpaceLineHeightInput.value);
-    const extra3            = (lh3/100 - 1) * parseFloat(pSpaceFontSizeInput.value);
-    el.style.marginBottom   = `${extra3}px`;
-    el.style.fontFamily     = pSpaceFontInput.value;
-    el.style.fontWeight     = pSpaceBoldInput.checked ? 'bold' : 'normal';
-    el.style.fontSize       = `${pSpaceFontSizeInput.value}px`;
-    el.style.letterSpacing  = `${pSpaceLetterSpacingInput.value}px`;
-    el.style.fontStyle      = pSpaceItalicInput.checked ? 'italic' : 'normal';
-    el.style.color          = pSpaceColorInput.value;
-    el.style.textAlign      = pSpaceAlignSelect.value;
-    el.style.fontFamily     = subFamily;
+    
+    ['Left','Top','Bottom'].forEach(pos => { el.style['border'+pos] = 'none'; });
+    if (h2Side !== 'none') {
+      el.style['border' + h2Side.charAt(0).toUpperCase() + h2Side.slice(1)] =
+        `${h2BW} ${h2BS} ${h2BC}`;
+    }
   });
 
   // 본문
@@ -367,6 +425,21 @@ ${importCss}
   text-transform: ${h1TextTransformSelect.value};
   text-align: ${h1TextAlignSelect.value};
   color: ${h1ColorInput.value};
+  border-${h1Side}: ${h1BorderWidthInput.value}px ${h1BorderStyleInput.value} ${h1BorderColorInput.value};
+}
+
+/* subtitle */
+.paragraph-container .space-vertical {
+  margin-top: 0;
+  margin-bottom: ${ex3}px;
+  font-family: ${getFontFamily(pSpaceFontInput.value)};
+  font-weight: ${pSpaceBoldInput.checked ? 'bold' : 'normal'};
+  font-size: ${pSpaceFontSizeInput.value}px;
+  letter-spacing: ${pSpaceLetterSpacingInput.value}px;
+  font-style: ${pSpaceItalicInput.checked ? 'italic' : 'normal'};
+  color: ${pSpaceColorInput.value};
+  text-align: ${pSpaceAlignSelect.value};
+  border-${pSpaceBorderSideInput.value}: ${pSpaceBorderWidthInput.value}px ${pSpaceBorderStyleInput.value} ${pSpaceBorderColorInput.value};
 }
 
 /* h2 */
@@ -383,19 +456,7 @@ ${importCss}
   color: ${h2ColorInput.value};
   border-left: ${h2BorderInput.checked ? `4px solid ${h2ColorInput.value}` : 'none'};
   padding-left: ${h2BorderInput.checked ? '0.5rem' : '0'};
-}
-
-/* subtitle */
-.paragraph-container .space-vertical {
-  margin-top: 0;
-  margin-bottom: ${ex3}px;
-  font-family: ${getFontFamily(pSpaceFontInput.value)};
-  font-weight: ${pSpaceBoldInput.checked ? 'bold' : 'normal'};
-  font-size: ${pSpaceFontSizeInput.value}px;
-  letter-spacing: ${pSpaceLetterSpacingInput.value}px;
-  font-style: ${pSpaceItalicInput.checked ? 'italic' : 'normal'};
-  color: ${pSpaceColorInput.value};
-  text-align: ${pSpaceAlignSelect.value};
+  border-${h2BorderSideInput.value}: ${h2BorderWidthInput.value}px ${h2BorderStyleInput.value} ${h2BorderColorInput.value};
 }
 
 /* body paragraphs */

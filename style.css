@@ -47,6 +47,19 @@ body {
   padding-left: 0.5rem;
 }
 
+.typography-controls .border-controls {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+.typography-controls .border-controls label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+
 /* ========== 2) 레이아웃 오프셋 ========== */
 .layout {
   margin-left: 320px; /* controls 폭 + 여유 */
