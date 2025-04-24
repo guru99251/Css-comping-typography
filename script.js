@@ -85,18 +85,30 @@ let isCollapsedSummary      = false;
 
 // Border 관련 요소
 // H1 Border
+const h1BorderLeftInput   = document.getElementById('h1-border-left');
+const h1BorderRightInput  = document.getElementById('h1-border-right');
+const h1BorderTopInput    = document.getElementById('h1-border-top');
+const h1BorderBottomInput = document.getElementById('h1-border-bottom');
 const h1BorderSideInput  = document.getElementById('h1-border-side');
 const h1BorderWidthInput = document.getElementById('h1-border-width');
 const h1BorderStyleInput = document.getElementById('h1-border-style');
 const h1BorderColorInput = document.getElementById('h1-border-color');
 const h1BorderPaddingInput = document.getElementById('h1-border-padding');
 // Subtitle Border (p-space)
+const pSpaceBorderLeftInput   = document.getElementById('p-space-border-left');
+const pSpaceBorderRightInput  = document.getElementById('p-space-border-right');
+const pSpaceBorderTopInput    = document.getElementById('p-space-border-top');
+const pSpaceBorderBottomInput = document.getElementById('p-space-border-bottom');
 const pSpaceBorderSideInput  = document.getElementById('p-space-border-side');
 const pSpaceBorderWidthInput = document.getElementById('p-space-border-width');
 const pSpaceBorderStyleInput = document.getElementById('p-space-border-style');
 const pSpaceBorderColorInput = document.getElementById('p-space-border-color');
 const pSpaceBorderPaddingInput = document.getElementById('p-space-border-padding');
 // H2 Border
+const h2BorderLeftInput   = document.getElementById('h2-border-left');
+const h2BorderRightInput  = document.getElementById('h2-border-right');
+const h2BorderTopInput    = document.getElementById('h2-border-top');
+const h2BorderBottomInput = document.getElementById('h2-border-bottom');
 const h2BorderSideInput  = document.getElementById('h2-border-side');
 const h2BorderWidthInput = document.getElementById('h2-border-width');
 const h2BorderStyleInput = document.getElementById('h2-border-style');
@@ -116,8 +128,11 @@ controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
 
 
 controls.push(
+  h1BorderLeftInput, h1BorderRightInput, h1BorderTopInput, h1BorderBottomInput,
   h1BorderSideInput, h1BorderWidthInput, h1BorderStyleInput, h1BorderColorInput, h1BorderPaddingInput,
+  pSpaceBorderLeftInput, pSpaceBorderRightInput, pSpaceBorderTopInput, pSpaceBorderBottomInput,
   pSpaceBorderSideInput, pSpaceBorderWidthInput, pSpaceBorderStyleInput, pSpaceBorderColorInput, pSpaceBorderPaddingInput,
+  h2BorderLeftInput, h2BorderRightInput, h2BorderTopInput, h2BorderBottomInput,
   h2BorderSideInput, h2BorderWidthInput, h2BorderStyleInput, h2BorderColorInput, h2BorderPaddingInput
 );
 controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
@@ -288,15 +303,22 @@ function updateStyles() {
     el.style.fontFamily     = h1Family;
     
     // 기존 border & padding 초기화
-    ['Left','Top','Bottom'].forEach(pos => {
-      el.style['border'+pos]  = 'none';
-      el.style['padding'+pos] = '';
+    ['left','right','top','bottom'].forEach(side => {
+      const cap = side.charAt(0).toUpperCase() + side.slice(1);
+      const checked = {
+        left:   h1BorderLeftInput.checked,
+        right:  h1BorderRightInput.checked,
+        top:    h1BorderTopInput.checked,
+        bottom: h1BorderBottomInput.checked
+      }[side];
+      if (checked) {
+        el.style['border' + cap]  = `${h1BorderWidthInput.value}px ${h1BorderStyleInput.value} ${h1BorderColorInput.value}`;
+        el.style['padding' + cap] = `${h1BorderPaddingInput.value}px`;
+      } else {
+        el.style['border' + cap]  = 'none';
+        el.style['padding' + cap] = '';
+      }
     });
-    if (h1Side !== 'none') {
-      const cap = h1Side.charAt(0).toUpperCase() + h1Side.slice(1);
-      el.style['border'+cap]  = `${h1BW} ${h1BS} ${h1BC}`;
-      el.style['padding'+cap] = h1Padding;
-    }
   });
 
   // 부주제
@@ -320,15 +342,22 @@ function updateStyles() {
     el.style.textAlign      = pSpaceAlignSelect.value;
     el.style.fontFamily     = subFamily;
     
-    ['Left','Top','Bottom'].forEach(pos => {
-      el.style['border'+pos]  = 'none';
-      el.style['padding'+pos] = '';
+    ['left','right','top','bottom'].forEach(side => {
+      const cap = side.charAt(0).toUpperCase() + side.slice(1);
+      const checked = {
+        left:   pSpaceBorderLeftInput.checked,
+        right:  pSpaceBorderRightInput.checked,
+        top:    pSpaceBorderTopInput.checked,
+        bottom: pSpaceBorderBottomInput.checked
+      }[side];
+      if (checked) {
+        el.style['border' + cap]  = `${pSpaceBorderWidthInput.value}px ${pSpaceBorderStyleInput.value} ${pSpaceBorderColorInput.value}`;
+        el.style['padding' + cap] = `${pSpaceBorderPaddingInput.value}px`;
+      } else {
+        el.style['border' + cap]  = 'none';
+        el.style['padding' + cap] = '';
+      }
     });
-    if (psSide !== 'none') {
-      const cap = psSide.charAt(0).toUpperCase() + psSide.slice(1);
-      el.style['border'+cap]  = `${psBW} ${psBS} ${psBC}`;
-      el.style['padding'+cap] = psPadding;
-    }
   });
 
   // H2
@@ -357,15 +386,22 @@ function updateStyles() {
     el.style.paddingLeft = h2BorderInput.checked ? '0.5rem' : '0';
     el.style.fontFamily     = h2Family;
     
-    ['Left','Top','Bottom'].forEach(pos => {
-      el.style['border'+pos]  = 'none';
-      el.style['padding'+pos] = '';
+    ['left','right','top','bottom'].forEach(side => {
+      const cap = side.charAt(0).toUpperCase() + side.slice(1);
+      const checked = {
+        left:   h2BorderLeftInput.checked,
+        right:  h2BorderRightInput.checked,
+        top:    h2BorderTopInput.checked,
+        bottom: h2BorderBottomInput.checked
+      }[side];
+      if (checked) {
+        el.style['border' + cap]  = `${h2BorderWidthInput.value}px ${h2BorderStyleInput.value} ${h2BorderColorInput.value}`;
+        el.style['padding' + cap] = `${h2BorderPaddingInput.value}px`;
+      } else {
+        el.style['border' + cap]  = 'none';
+        el.style['padding' + cap] = '';
+      }
     });
-    if (h2Side !== 'none') {
-      const cap = h2Side.charAt(0).toUpperCase() + h2Side.slice(1);
-      el.style['border'+cap]  = `${h2BW} ${h2BS} ${h2BC}`;
-      el.style['padding'+cap] = h2Padding;
-    }
   });
 
   // 본문
@@ -446,9 +482,19 @@ function updateCssOutput() {
     text-transform: ${h1TextTransformSelect.value};
     text-align: ${h1TextAlignSelect.value};
     color: ${h1ColorInput.value};
-    border-${h1Side}: ${h1BorderWidthInput.value}px ${h1BorderStyleInput.value} ${h1BorderColorInput.value};
-    padding-${h1Side}: ${h1BorderPaddingInput.value}px;
-   }
+
+    ${['left','right','top','bottom'].map(side => {
+    const checked = {
+      left:   h1BorderLeftInput.checked,
+      right:  h1BorderRightInput.checked,
+      top:    h1BorderTopInput.checked,
+      bottom: h1BorderBottomInput.checked
+    }[side];
+    if (!checked) return '';
+    return `border-${side}: ${h1BorderWidthInput.value}px ${h1BorderStyleInput.value} ${h1BorderColorInput.value};
+ padding-${side}: ${h1BorderPaddingInput.value}px;`;
+  }).join('\n    ')}
+}
 
   /* subtitle */
   .paragraph-container .space-vertical {
@@ -461,9 +507,19 @@ function updateCssOutput() {
     font-style: ${pSpaceItalicInput.checked ? 'italic' : 'normal'};
     color: ${pSpaceColorInput.value};
     text-align: ${pSpaceAlignSelect.value};
-    border-${psSide}: ${pSpaceBorderWidthInput.value}px ${pSpaceBorderStyleInput.value} ${pSpaceBorderColorInput.value};
-    padding-${psSide}: ${pSpaceBorderPaddingInput.value}px;
-   }
+
+    ${['left','right','top','bottom'].map(side => {
+    const checked = {
+      left:   pSpaceBorderLeftInput.checked,
+      right:  pSpaceBorderRightInput.checked,
+      top:    pSpaceBorderTopInput.checked,
+      bottom: pSpaceBorderBottomInput.checked
+    }[side];
+    if (!checked) return '';
+    return `border-${side}: ${pSpaceBorderWidthInput.value}px ${pSpaceBorderStyleInput.value} ${pSpaceBorderColorInput.value};
+ padding-${side}: ${pSpaceBorderPaddingInput.value}px;`;
+  }).join('\n    ')}
+}
 
   /* h2 */
   .paragraph-container h2 {
@@ -479,9 +535,19 @@ function updateCssOutput() {
     color: ${h2ColorInput.value};
     border-left: ${h2BorderInput.checked ? `4px solid ${h2ColorInput.value}` : 'none'};
     padding-left: ${h2BorderInput.checked ? '0.5rem' : '0'};
-    border-${h2Side}: ${h2BorderWidthInput.value}px ${h2BorderStyleInput.value} ${h2BorderColorInput.value};
-    padding-${h2Side}: ${h2BorderPaddingInput.value}px;
-  }
+
+    ${['left','right','top','bottom'].map(side => {
+    const checked = {
+      left:   h2BorderLeftInput.checked,
+      right:  h2BorderRightInput.checked,
+      top:    h2BorderTopInput.checked,
+      bottom: h2BorderBottomInput.checked
+    }[side];
+    if (!checked) return '';
+    return `border-${side}: ${h2BorderWidthInput.value}px ${h2BorderStyleInput.value} ${h2BorderColorInput.value};
+ padding-${side}: ${h2BorderPaddingInput.value}px;`;
+  }).join('\n    ')}
+}
 
   /* body paragraphs */
   .paragraph-container p:not(.space-vertical) {

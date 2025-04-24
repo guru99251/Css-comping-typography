@@ -53,14 +53,13 @@
     <span style="display:inline-block;">Bold: <input type="checkbox" id="h1-bold"></span>
     <span style="display:inline-block;">Italic: <input type="checkbox" id="h1-italic"></span>
     <div class="border-controls">
-      <label>Border Side:
-        <select id="h1-border-side">
-          <option value="none">none</option>
-          <option value="left">left</option>
-          <option value="top">top</option>
-          <option value="bottom">bottom</option>
-        </select>
-      </label>
+      <label>Border:</label>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <label><input type="checkbox" id="h1-border-left"> Left</label>
+        <label><input type="checkbox" id="h1-border-right"> Right</label>
+        <label><input type="checkbox" id="h1-border-top"> Top</label>
+        <label><input type="checkbox" id="h1-border-bottom"> Bottom</label>
+      </div>
       <label>Width (px): <input type="number" id="h1-border-width" value="4" step="0.1"></label>
       <label>Style:
         <select id="h1-border-style">
@@ -96,14 +95,13 @@
     <span style="display:inline-block;">Bold: <input type="checkbox" id="p-space-bold"></span>
     <span style="display:inline-block;">Italic: <input type="checkbox" id="p-space-italic"></span>
     <div class="border-controls">
-      <label>Border Side:
-        <select id="p-space-border-side">
-          <option value="none">none</option>
-          <option value="left">left</option>
-          <option value="top">top</option>
-          <option value="bottom">bottom</option>
-        </select>
-      </label>
+      <label>Border:</label>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <label><input type="checkbox" id="p-space-border-left"> Left</label>
+        <label><input type="checkbox" id="p-space-border-right"> Right</label>
+        <label><input type="checkbox" id="p-space-border-top"> Top</label>
+        <label><input type="checkbox" id="p-space-border-bottom"> Bottom</label>
+      </div>      
       <label>Width (px): <input type="number" id="p-space-border-width" value="4" step="0.1"></label>
       <label>Style:
         <select id="p-space-border-style">
@@ -160,14 +158,13 @@
     <span style="display:inline-block;">Italic: <input type="checkbox" id="h2-italic"></span>
     <span style="display:inline-block;">Border Left: <input type="checkbox" id="h2-border" checked></span>
     <div class="border-controls">
-      <label>Border Side:
-        <select id="h2-border-side">
-          <option value="none">none</option>
-          <option value="left">left</option>
-          <option value="top">top</option>
-          <option value="bottom">bottom</option>
-        </select>
-      </label>
+      <label>Border:</label>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <label><input type="checkbox" id="h2-border-left"> Left</label>
+        <label><input type="checkbox" id="h2-border-right"> Right</label>
+        <label><input type="checkbox" id="h2-border-top"> Top</label>
+        <label><input type="checkbox" id="h2-border-bottom"> Bottom</label>
+      </div>
       <label>Width (px): <input type="number" id="h2-border-width" value="4" step="0.1"></label>
       <label>Style:
         <select id="h2-border-style">
