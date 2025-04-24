@@ -392,11 +392,15 @@ function updateStyles() {
 
 // — CSS 출력 생성 — 
 function updateCssOutput() {
-    // 로드된 모든 폰트 링크를 @import 로 출력
-    let importCss = '';
-    loadedFontLinks.forEach(url => {
-      importCss += `@import url('${url}');\n`;
-    });
+  const h1Side    = h1BorderSideInput.value;
+  const psSide    = pSpaceBorderSideInput.value;
+  const h2Side    = h2BorderSideInput.value;
+  
+  // 로드된 모든 폰트 링크를 @import 로 출력
+  let importCss = '';
+  loadedFontLinks.forEach(url => {
+    importCss += `@import url('${url}');\n`;
+  });
 
   // 각 extra 값 재계산
   const lh1 = parseFloat(h1LineHeightInput.value);
@@ -407,70 +411,70 @@ function updateCssOutput() {
   const ex3 = (lh3/100 - 1) * parseFloat(pSpaceFontSizeInput.value);
 
   cssOutput.value = `
-${importCss}
-/* paragraph-container */
-.paragraph-container {
-  background-color: ${pBgColorInput.value};
-}
+  ${importCss}
+  /* paragraph-container */
+  .paragraph-container {
+    background-color: ${pBgColorInput.value};
+  }
 
-/* h1 */
-.paragraph-container h1 {
-  margin-top: 0;
-  margin-bottom: ${ex1}px;
-  font-family: ${getFontFamily(h1FontInput.value)};
-  font-weight: ${h1BoldInput.checked ? 'bold' : h1FontWeightInput.value};
-  font-size: ${h1FontSizeInput.value}px;
-  letter-spacing: ${h1LetterSpacingInput.value}px;
-  font-style: ${h1ItalicInput.checked ? 'italic' : 'normal'};
-  text-transform: ${h1TextTransformSelect.value};
-  text-align: ${h1TextAlignSelect.value};
-  color: ${h1ColorInput.value};
-  border-${h1Side}: ${h1BorderWidthInput.value}px ${h1BorderStyleInput.value} ${h1BorderColorInput.value};
-}
+  /* h1 */
+  .paragraph-container h1 {
+    margin-top: 0;
+    margin-bottom: ${ex1}px;
+    font-family: ${getFontFamily(h1FontInput.value)};
+    font-weight: ${h1BoldInput.checked ? 'bold' : h1FontWeightInput.value};
+    font-size: ${h1FontSizeInput.value}px;
+    letter-spacing: ${h1LetterSpacingInput.value}px;
+    font-style: ${h1ItalicInput.checked ? 'italic' : 'normal'};
+    text-transform: ${h1TextTransformSelect.value};
+    text-align: ${h1TextAlignSelect.value};
+    color: ${h1ColorInput.value};
+    border-${h1Side}: ${h1BorderWidthInput.value}px ${h1BorderStyleInput.value} ${h1BorderColorInput.value};
+   }
 
-/* subtitle */
-.paragraph-container .space-vertical {
-  margin-top: 0;
-  margin-bottom: ${ex3}px;
-  font-family: ${getFontFamily(pSpaceFontInput.value)};
-  font-weight: ${pSpaceBoldInput.checked ? 'bold' : 'normal'};
-  font-size: ${pSpaceFontSizeInput.value}px;
-  letter-spacing: ${pSpaceLetterSpacingInput.value}px;
-  font-style: ${pSpaceItalicInput.checked ? 'italic' : 'normal'};
-  color: ${pSpaceColorInput.value};
-  text-align: ${pSpaceAlignSelect.value};
-  border-${pSpaceBorderSideInput.value}: ${pSpaceBorderWidthInput.value}px ${pSpaceBorderStyleInput.value} ${pSpaceBorderColorInput.value};
-}
+  /* subtitle */
+  .paragraph-container .space-vertical {
+    margin-top: 0;
+    margin-bottom: ${ex3}px;
+    font-family: ${getFontFamily(pSpaceFontInput.value)};
+    font-weight: ${pSpaceBoldInput.checked ? 'bold' : 'normal'};
+    font-size: ${pSpaceFontSizeInput.value}px;
+    letter-spacing: ${pSpaceLetterSpacingInput.value}px;
+    font-style: ${pSpaceItalicInput.checked ? 'italic' : 'normal'};
+    color: ${pSpaceColorInput.value};
+    text-align: ${pSpaceAlignSelect.value};
+    border-${psSide}: ${pSpaceBorderWidthInput.value}px ${pSpaceBorderStyleInput.value} ${pSpaceBorderColorInput.value};
+   }
 
-/* h2 */
-.paragraph-container h2 {
-  margin-top: 0;
-  margin-bottom: ${ex2}px;
-  font-family: ${getFontFamily(h2FontInput.value)};
-  font-weight: ${h2BoldInput.checked ? 'bold' : h2FontWeightInput.value};
-  font-size: ${h2FontSizeInput.value}px;
-  letter-spacing: ${h2LetterSpacingInput.value}px;
-  font-style: ${h2ItalicInput.checked ? 'italic' : 'normal'};
-  text-transform: ${h2TextTransformSelect.value};
-  text-align: ${h2TextAlignSelect.value};
-  color: ${h2ColorInput.value};
-  border-left: ${h2BorderInput.checked ? `4px solid ${h2ColorInput.value}` : 'none'};
-  padding-left: ${h2BorderInput.checked ? '0.5rem' : '0'};
-  border-${h2BorderSideInput.value}: ${h2BorderWidthInput.value}px ${h2BorderStyleInput.value} ${h2BorderColorInput.value};
-}
+  /* h2 */
+  .paragraph-container h2 {
+    margin-top: 0;
+    margin-bottom: ${ex2}px;
+    font-family: ${getFontFamily(h2FontInput.value)};
+    font-weight: ${h2BoldInput.checked ? 'bold' : h2FontWeightInput.value};
+    font-size: ${h2FontSizeInput.value}px;
+    letter-spacing: ${h2LetterSpacingInput.value}px;
+    font-style: ${h2ItalicInput.checked ? 'italic' : 'normal'};
+    text-transform: ${h2TextTransformSelect.value};
+    text-align: ${h2TextAlignSelect.value};
+    color: ${h2ColorInput.value};
+    border-left: ${h2BorderInput.checked ? `4px solid ${h2ColorInput.value}` : 'none'};
+    padding-left: ${h2BorderInput.checked ? '0.5rem' : '0'};
+    border-${h2Side}: ${h2BorderWidthInput.value}px ${h2BorderStyleInput.value} ${h2BorderColorInput.value};
+   }
 
-/* body paragraphs */
-.paragraph-container p:not(.space-vertical) {
-  font-family: ${getFontFamily(pFontInput.value)};
-  font-weight: ${pBoldInput.checked ? 'bold' : 'normal'};
-  font-size: ${pFontSizeInput.value}px;
-  letter-spacing: ${pLetterSpacingInput.value}px;
-  line-height: ${pLineHeightInput.value}%;
-  max-width: ${pLineLengthInput.value}ch;
-  font-style: ${pItalicInput.checked ? 'italic' : 'normal'};
-  color: ${pColorInput.value};
-  text-align: ${pJustifyInput.checked ? 'justify' : 'left'};
-}
+  /* body paragraphs */
+  .paragraph-container p:not(.space-vertical) {
+    font-family: ${getFontFamily(pFontInput.value)};
+    font-weight: ${pBoldInput.checked ? 'bold' : 'normal'};
+    font-size: ${pFontSizeInput.value}px;
+    letter-spacing: ${pLetterSpacingInput.value}px;
+    line-height: ${pLineHeightInput.value}%;
+    max-width: ${pLineLengthInput.value}ch;
+    font-style: ${pItalicInput.checked ? 'italic' : 'normal'};
+    color: ${pColorInput.value};
+    text-align: ${pJustifyInput.checked ? 'justify' : 'left'};
+  }
   `.trim();
 }
 
