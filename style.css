@@ -89,11 +89,15 @@ body {
 }
 
 .small {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: rgba(0, 0, 0, 0.4);
   font-weight: 500;
   border-left: 3px solid rgba(0, 0, 0, 0.2);
   padding-left: 1rem;
+}
+
+#summary {
+  font-size: 0.7rem;
 }
 
 /* ========== 텍스트 계층 구조 ========== */
