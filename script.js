@@ -89,19 +89,16 @@ const h1BorderSideInput  = document.getElementById('h1-border-side');
 const h1BorderWidthInput = document.getElementById('h1-border-width');
 const h1BorderStyleInput = document.getElementById('h1-border-style');
 const h1BorderColorInput = document.getElementById('h1-border-color');
-const h1BorderPaddingInput    = document.getElementById('h1-border-padding');
 // Subtitle Border (p-space)
 const pSpaceBorderSideInput  = document.getElementById('p-space-border-side');
 const pSpaceBorderWidthInput = document.getElementById('p-space-border-width');
 const pSpaceBorderStyleInput = document.getElementById('p-space-border-style');
 const pSpaceBorderColorInput = document.getElementById('p-space-border-color');
-const pSpaceBorderPaddingInput= document.getElementById('p-space-border-padding');
 // H2 Border
 const h2BorderSideInput  = document.getElementById('h2-border-side');
 const h2BorderWidthInput = document.getElementById('h2-border-width');
 const h2BorderStyleInput = document.getElementById('h2-border-style');
 const h2BorderColorInput = document.getElementById('h2-border-color');
-const h2BorderPaddingInput    = document.getElementById('h2-border-padding');
 
 
 // — 이벤트 바인딩 —
@@ -118,7 +115,7 @@ controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
 controls.push(
   h1BorderSideInput, h1BorderWidthInput, h1BorderStyleInput, h1BorderColorInput,
   pSpaceBorderSideInput, pSpaceBorderWidthInput, pSpaceBorderStyleInput, pSpaceBorderColorInput,
-  h2BorderSideInput, h2BorderWidthInput, h2BorderStyleInput, h2BorderColorInput, h1BorderPaddingInput, pSpaceBorderPaddingInput, h2BorderPaddingInput
+  h2BorderSideInput, h2BorderWidthInput, h2BorderStyleInput, h2BorderColorInput
 );
 controls.forEach(ctrl => ctrl.addEventListener('input', updateStyles));
 
@@ -271,7 +268,6 @@ function updateStyles() {
   const h1BW    = `${h1BorderWidthInput.value}px`;
   const h1BS    = h1BorderStyleInput.value;
   const h1BC    = h1BorderColorInput.value;
-  const h1BP = `${h1BorderPaddingInput.value}px`;
   h1Els.forEach(el => {
     el.style.marginTop      = '0';
     const lh1               = parseFloat(h1LineHeightInput.value);
@@ -288,13 +284,11 @@ function updateStyles() {
     el.style.fontFamily     = h1Family;
     
     ['Left','Top','Bottom'].forEach(pos => {
-      el.style['padding'+pos] = '';
-      el.style['border'+pos]  = 'none';
+      el.style['border' + pos] = 'none';
     });
     if (h1Side !== 'none') {
-      const prop = 'border'+ h1Side[0].toUpperCase()+h1Side.slice(1);
-      el.style[prop] = `${h1BW} ${h1BS} ${h1BC}`;
-      el.style['padding'+ h1Side[0].toUpperCase()+h1Side.slice(1)] = h1BP;
+      el.style['border' + h1Side.charAt(0).toUpperCase() + h1Side.slice(1)] =
+        `${h1BW} ${h1BS} ${h1BC}`;
     }
   });
 
@@ -304,7 +298,6 @@ function updateStyles() {
   const psBW    = `${pSpaceBorderWidthInput.value}px`;
   const psBS    = pSpaceBorderStyleInput.value;
   const psBC    = pSpaceBorderColorInput.value;
-  const psBP = `${pSpaceBorderPaddingInput.value}px`;
   subEls.forEach(el => {
     el.style.marginTop      = '0';
     const lh3               = parseFloat(pSpaceLineHeightInput.value);
@@ -319,14 +312,10 @@ function updateStyles() {
     el.style.textAlign      = pSpaceAlignSelect.value;
     el.style.fontFamily     = subFamily;
     
-    ['Left','Top','Bottom'].forEach(pos => {
-      el.style['padding'+pos] = '';
-      el.style['border'+pos]  = 'none';
-    });
+    ['Left','Top','Bottom'].forEach(pos => { el.style['border'+pos] = 'none'; });
     if (psSide !== 'none') {
-      const prop = 'border'+ psSide[0].toUpperCase()+psSide.slice(1);
-      el.style[prop] = `${psBW} ${psBS} ${psBC}`;
-      el.style['padding'+ psSide[0].toUpperCase()+psSide.slice(1)] = psBP;
+      el.style['border' + psSide.charAt(0).toUpperCase() + psSide.slice(1)] =
+        `${psBW} ${psBS} ${psBC}`;
     }
   });
 
@@ -336,7 +325,6 @@ function updateStyles() {
   const h2BW    = `${h2BorderWidthInput.value}px`;
   const h2BS    = h2BorderStyleInput.value;
   const h2BC    = h2BorderColorInput.value;
-  const h2BP = `${h2BorderPaddingInput.value}px`;
   h2Els.forEach(el => {
     el.style.marginTop      = '0';
     const lh2               = parseFloat(h2LineHeightInput.value);
@@ -356,14 +344,10 @@ function updateStyles() {
     el.style.paddingLeft = h2BorderInput.checked ? '0.5rem' : '0';
     el.style.fontFamily     = h2Family;
     
-    ['Left','Top','Bottom'].forEach(pos => {
-      el.style['padding'+pos] = '';
-      el.style['border'+pos]  = 'none';
-    });
+    ['Left','Top','Bottom'].forEach(pos => { el.style['border'+pos] = 'none'; });
     if (h2Side !== 'none') {
-      const prop = 'border'+ h2Side[0].toUpperCase()+h2Side.slice(1);
-      el.style[prop] = `${h2BW} ${h2BS} ${h2BC}`;
-      el.style['padding'+ h2Side[0].toUpperCase()+h2Side.slice(1)] = h2BP;
+      el.style['border' + h2Side.charAt(0).toUpperCase() + h2Side.slice(1)] =
+        `${h2BW} ${h2BS} ${h2BC}`;
     }
   });
 
@@ -442,7 +426,7 @@ ${importCss}
   text-align: ${h1TextAlignSelect.value};
   color: ${h1ColorInput.value};
   border-${h1Side}: ${h1BorderWidthInput.value}px ${h1BorderStyleInput.value} ${h1BorderColorInput.value};
-  padding-${h1Side}: ${h1BorderPaddingInput.value}px;}
+}
 
 /* subtitle */
 .paragraph-container .space-vertical {
@@ -456,7 +440,6 @@ ${importCss}
   color: ${pSpaceColorInput.value};
   text-align: ${pSpaceAlignSelect.value};
   border-${pSpaceBorderSideInput.value}: ${pSpaceBorderWidthInput.value}px ${pSpaceBorderStyleInput.value} ${pSpaceBorderColorInput.value};
-  padding-${pSpaceBorderSideInput.value}: ${pSpaceBorderPaddingInput.value}px;
 }
 
 /* h2 */
@@ -474,7 +457,6 @@ ${importCss}
   border-left: ${h2BorderInput.checked ? `4px solid ${h2ColorInput.value}` : 'none'};
   padding-left: ${h2BorderInput.checked ? '0.5rem' : '0'};
   border-${h2BorderSideInput.value}: ${h2BorderWidthInput.value}px ${h2BorderStyleInput.value} ${h2BorderColorInput.value};
-  padding-${h2BorderSideInput.value}: ${h2BorderPaddingInput.value}px;
 }
 
 /* body paragraphs */
